@@ -1,29 +1,30 @@
 import { useEffect, useState } from "react";
 import { getPopular } from "../services/tmdb";
-import FavoriteButton from "../components/FavoriteButton";
+import MovieCard from "../components/MovieCard";
 
 function Home() {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     getPopular()
       .then((res) => setMovies(res.data.results))
-      .catch(() => setError(true));
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
   }, []);
 
+  if (loading) return <p>Cargando películas...</p>;
   if (error) return <p>Error al cargar las películas</p>;
 
   return (
     <div>
       <h1 className="text-2xl mb-4">Películas populares</h1>
-      <ul>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {movies.map((m) => (
-          <li key={m.id} className="flex gap-2 items-center">
-            {m.title} <FavoriteButton movie={m} />
-          </li>
+          <MovieCard key={m.id} movie={m} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
