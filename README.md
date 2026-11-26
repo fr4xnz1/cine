@@ -50,7 +50,7 @@ La clave de TMDB no está en el código del frontend. Vive solo en el servidor (
 
 - Franz Aldair Rojas Ramirez
 - (buscador)
-- (login y menú)
+- Victor Santiago Simon Herbas
 - (géneros y diseño)
 
 Datos de películas proporcionados por [TMDB](https://www.themoviedb.org/). Este producto usa la API de TMDB pero no está avalado ni certificado por TMDB.
