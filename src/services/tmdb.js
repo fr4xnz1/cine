@@ -16,3 +16,6 @@ export const getMovie = (id) => api.get(`/movie/${id}`);
 export const getGenres = () => api.get("/genre/movie/list");
 export const getByGenre = (genreId, page = 1) =>
   api.get("/discover/movie", { params: { with_genres: genreId, page } });
+export const getCredits = (id) => api.get(`/movie/${id}/credits`);
+export const getVideos = (id) =>
+  api.get(`/movie/${id}/videos`, { params: { language: "en-US" } });
