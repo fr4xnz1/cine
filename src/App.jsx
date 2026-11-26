@@ -21,6 +21,9 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+      <footer className="text-center text-xs text-gray-500 py-6">
+        Datos de películas proporcionados por TMDB. Este producto usa la API de TMDB pero no está avalado ni certificado por TMDB.
+      </footer>
     </div>
   );
 }
