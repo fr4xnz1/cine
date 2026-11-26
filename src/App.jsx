@@ -1,8 +1,21 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import MovieDetail from "./pages/MovieDetail";
+import Favorites from "./pages/Favorites";
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold text-red-500 p-6">
-      Cine funciona
-    </h1>
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Navbar />
+      <main className="p-6">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pelicula/:id" element={<MovieDetail />} />
+          <Route path="/favoritos" element={<Favorites />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 
