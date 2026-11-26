@@ -1,3 +1,4 @@
+import type { MovieDetails, CastMember, Video } from "../types/movie";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getMovie, getCredits, getVideos } from "../services/tmdb";
@@ -7,14 +8,16 @@ const IMG = "https://image.tmdb.org/t/p/w500";
 const PROFILE = "https://image.tmdb.org/t/p/w185";
 
 function MovieDetail() {
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-  const [cast, setCast] = useState([]);
-  const [trailer, setTrailer] = useState(null);
+  const { id } = useParams<{ id: string }>();
+  const [movie, setMovie] = useState<MovieDetails | null>(null);
+  const [cast, setCast] = useState<CastMember[]>([]);
+  const [trailer, setTrailer] = useState<Video | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => 
+    {
+    if (!id) return;
     setLoading(true);
     setError(false);
     setCast([]);
