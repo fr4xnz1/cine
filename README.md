@@ -49,7 +49,7 @@ La clave de TMDB no está en el código del frontend. Vive solo en el servidor (
 ## Integrantes
 
 - Franz Aldair Rojas Ramirez
-- (buscador)
+- Adhemar Salcedo Delgado
 - Victor Santiago Simon Herbas
 - (géneros y diseño)
 
